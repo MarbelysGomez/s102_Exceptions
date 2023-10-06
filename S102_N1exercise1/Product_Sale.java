@@ -1,4 +1,4 @@
-package S102_N1exercise1;
+package s102_Exceptions.S102_N1exercise1;
 
 public class Product_Sale {
     public static void main(String[] args) {
@@ -17,11 +17,14 @@ public class Product_Sale {
 
             System.out.println("The total sales price is: " + saleObj.getTotalSalesPrice() + ".");
 
-            int index = 5;
+            int index = 1;
 
-            Product product = saleObj.getProductsCollection().get(index);
-            System.out.println("Product at index " + index + ": " + product.getName() + "-" + product.getPrice());
-
+            if(index >= 0 && index < saleObj.getProductsCollection().size()) {
+                Product product = saleObj.getProductsCollection().get(index);
+                System.out.println("Product at index " + index + ": " + product.getName() + "-" + product.getPrice());
+            } else {
+                System.out.println("Invalid index. Index must be between 0 and " + (saleObj.getProductsCollection().size() -1));
+            }
         } catch (EmptySalesException e) {
             System.out.println(e.getMessage());
         }catch (IndexOutOfBoundsException e) {

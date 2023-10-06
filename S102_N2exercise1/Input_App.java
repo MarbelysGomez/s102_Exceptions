@@ -1,4 +1,4 @@
-/*package S102_N2exercise1;
+package s102_Exceptions.S102_N2exercise1;
 
 public class Input_App {
     public static void main(String[] args) {
@@ -36,4 +36,4 @@ public class Input_App {
 
         Input.closeScanner();
     }
-}*/
+}

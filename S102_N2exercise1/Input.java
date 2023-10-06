@@ -1,4 +1,4 @@
-/*package S102_N2exercise1;
+package s102_Exceptions.S102_N2exercise1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ public class Input {
                 System.out.println(message);
                 byteValue = sc.nextByte();
                 valid = true;
-
+            } catch (InputMismatchException error) {
                 System.out.println("Format error. Please enter a valid value.");
                 sc.nextLine();
             }
@@ -129,4 +129,4 @@ public class Input {
     public static void closeScanner(){
         sc.close();
     }
-}*/
+}

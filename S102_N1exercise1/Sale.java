@@ -1,4 +1,4 @@
-package S102_N1exercise1;
+package s102_Exceptions.S102_N1exercise1;
 
 import java.util.ArrayList;
 
