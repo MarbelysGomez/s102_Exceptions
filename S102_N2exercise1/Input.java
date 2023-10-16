@@ -3,7 +3,7 @@ package s102_Exceptions.S102_N2exercise1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Input {
-    private static Scanner sc = new Scanner(System.in);
+    private static Scanner inputSc = new Scanner(System.in);
 
     public static byte readByte(String message) {
         byte byteValue = 0;
@@ -12,11 +12,11 @@ public class Input {
         while (!valid) {
             try {
                 System.out.println(message);
-                byteValue = sc.nextByte();
+                byteValue = inputSc.nextByte();
                 valid = true;
-            } catch (InputMismatchException error) {
-                System.out.println("Format error. Please enter a valid value.");
-                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Format error. Please enter a valid date.");
+                inputSc.nextLine();
             }
         }
         return byteValue;
@@ -28,11 +28,11 @@ public class Input {
         while (!valid) {
             try {
                 System.out.println(message);
-                intValue = sc.nextInt();
+                intValue = inputSc.nextInt();
                 valid = true;
-            } catch (InputMismatchException error) {
-                System.out.println("Format error. Please enter a valid value.");
-                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Format error. Please enter your phone number.");
+                inputSc.nextLine();
             }
         }
         return intValue;
@@ -44,12 +44,12 @@ public class Input {
         while (!valid) {
             try {
                 System.out.println(message);
-                floatValue = sc.nextFloat();
+                floatValue = inputSc.nextFloat();
                 valid = true;
 
-            } catch (InputMismatchException error) {
-                System.out.println("Format error. Please enter a valid value.");
-                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Format error. Please enter a valid price value.");
+                inputSc.nextLine();
             }
         }
         return floatValue;
@@ -61,11 +61,11 @@ public class Input {
         while (!valid) {
             try {
                 System.out.println(message);
-                doubleValue = sc.nextDouble();
+                doubleValue = inputSc.nextDouble();
                 valid = true;
-            } catch (InputMismatchException error) {
-                System.out.println("Format error. Please enter a valid value.");
-                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Format error. Please enter a valid Pi value.");
+                inputSc.nextLine();
             }
         }
         return doubleValue;
@@ -77,11 +77,11 @@ public class Input {
         while (!valid) {
             try {
                 System.out.println(message);
-                charValue = sc.next().charAt(0);
+                charValue = inputSc.next().charAt(0);
                 valid = true;
-            } catch (Exception error) {
-                System.out.println("Format error.Please enter a valid value.");
-                sc.nextLine();
+            } catch (Exception e) {
+                System.out.println("Format error.Please enter a valid country's initial.");
+                inputSc.nextLine();
             }
         }
         return charValue;
@@ -93,11 +93,11 @@ public class Input {
         while (!valid) {
             try {
                 System.out.println(message);
-                sc.nextLine();
-                stringValue = sc.nextLine().toLowerCase();
+                inputSc.nextLine();
+                stringValue = inputSc.nextLine().toLowerCase();
                 valid = true;
-            } catch (Exception error) {
-                System.out.println("Format error. Please enter a valid text.");
+            } catch (Exception e) {
+                System.out.println("Format error. Please enter a valid name of a city.");
             }
         }
         return stringValue;
@@ -105,28 +105,25 @@ public class Input {
     public static boolean readYesNo(String message) {
         boolean booleanValue = false;
         boolean valid = false;
-        String input = "";
 
         while (!valid) {
             try {
                 System.out.println(message);
-                input = sc.next().trim().toLowerCase();
-                if (input.equals("y") || (input.equals("n"))) {
-                    booleanValue = input.equals("y");
+                String input = inputSc.next();
+                if (input.equalsIgnoreCase("y")) {
+                    booleanValue = true;
+                    valid = true;
+                } else if (input.equalsIgnoreCase("n")){
+                    booleanValue = false;
                     valid = true;
                 } else {
-                    booleanValue = false;
-                    valid = false;
+                    throw new Exception();
                 }
-            } catch (Exception error) {
+            } catch (Exception e) {
                 System.out.println("Format error. Please enter 'y' or 'n'.");
-            } finally {
-                sc.nextLine();
+                inputSc.nextLine();
             }
         }
         return booleanValue;
-    }
-    public static void closeScanner(){
-        sc.close();
     }
 }

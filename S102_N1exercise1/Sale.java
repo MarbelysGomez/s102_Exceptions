@@ -6,7 +6,7 @@ public class Sale {
     private ArrayList<Product> productsCollection;
     private double totalSalesPrice;
 
-    public Sale(){
+    public Sale() {
         this.productsCollection = new ArrayList<>();
         this.totalSalesPrice = 0;
     }
@@ -16,14 +16,13 @@ public class Sale {
     public double getTotalSalesPrice() {
         return this.totalSalesPrice;
     }
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         productsCollection.add(product);
     }
     public void totalCalculation() throws EmptySalesException {
         if (productsCollection.isEmpty()) {
-            throw new EmptySalesException("To make a sale you must first make products.");
+            throw new EmptySalesException("To make a sale you must first add products.");
         } else {
-            totalSalesPrice = 0;
             for (Product product : productsCollection) {
                 totalSalesPrice += product.getPrice();
             }

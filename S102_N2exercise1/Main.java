@@ -1,23 +1,21 @@
 package s102_Exceptions.S102_N2exercise1;
 
-public class Input_App {
+public class Main {
     public static void main(String[] args) {
 
         byte date;
-        int postalCode;
+        int phoneNumber;
         float sugarPrice;
         double piNumber;
         char countryInitial;
         String city;
-        boolean feedback;
-
-        //calling methods and assigning the returned values to the variables
+        boolean rain;
 
         date =Input.readByte("Today's date is: ");
         System.out.println("Date: " + date + ".");
 
-        postalCode = Input.readInt("What's your postal code?");
-        System.out.println("Postal code: " + postalCode + ".");
+        phoneNumber = Input.readInt("What's your phone number?");
+        System.out.println("Phone number: " + phoneNumber + ".");
 
         sugarPrice = Input.readFloat("What's the sugar price?");
         System.out.println("Sugar's price: " + sugarPrice + ".");
@@ -31,9 +29,8 @@ public class Input_App {
         city = Input.readString("Name of a city:");
         System.out.println("City's name: " + city + ".");
 
-        feedback = Input.readYesNo("Has it rained today? Enter 'y' or 'n'.");
-        System.out.println("Answer: " + feedback + ".");
+        rain = Input.readYesNo("Has it rained today? Enter 'y' or 'n'.");
+        System.out.println("Answer: " + rain + ".");
 
-        Input.closeScanner();
     }
 }
